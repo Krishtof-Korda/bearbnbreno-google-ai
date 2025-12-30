@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BearBnB Reno | Luxury Sprinter Rentals & High Sierra Stays</title>
+    <meta name="description" content="Premium Mercedes-Benz Sprinter rentals and luxury private suites in Reno, NV. The ultimate High Sierra basecamp for your Lake Tahoe and Yosemite adventures.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            darker: '#020617',
+                            green: '#2E8B57',
+                            forest: '#1B4D3E',
+                            sage: '#8FBC8F',
+                            gold: '#D4AF37',
+                            gray: '#94a3b8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+<style>
+    .btn-3d-luxury {
+        background: linear-gradient(180deg, #2E8B57 0%, #1B4D3E 100%);
+        box-shadow: 
+            0 1px 0 rgba(255,255,255,0.2) inset,
+            0 4px 0 #153a2f,
+            0 8px 15px rgba(0,0,0,0.4);
+        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .btn-3d-luxury:hover {
+        transform: translateY(-2px);
+        box-shadow: 
+            0 1px 0 rgba(255,255,255,0.3) inset,
+            0 5px 0 #153a2f,
+            0 12px 20px rgba(46,139,87,0.3);
+    }
+    .btn-3d-luxury:active {
+        transform: translateY(2px);
+        box-shadow: 
+            0 1px 0 rgba(255,255,255,0.1) inset,
+            0 1px 0 #153a2f,
+            0 2px 4px rgba(0,0,0,0.4);
+    }
+    .glass-card {
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "framer-motion": "https://esm.sh/framer-motion@^11.0.0"
+  }
+}
+</script>
+</head>
+<body class="bg-brand-darker text-white antialiased">
+    <div id="root"></div>
+</body>
+</html>

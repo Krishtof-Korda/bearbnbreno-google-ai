@@ -1,0 +1,7 @@
+{
+  "name": "Copy of BearBnB Reno - Luxury Roaming & Stays",
+  "description": "A premium web application for BearBnB Reno featuring luxury Mercedes Sprinter rentals, private suite stays, and an AI-powered High Sierra adventure planner.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
