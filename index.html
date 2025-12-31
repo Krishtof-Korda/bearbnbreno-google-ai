@@ -101,6 +101,11 @@
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
+
+        /* Modal Styles */
+        .modal-open {
+            overflow: hidden;
+        }
     </style>
 </head>
 <body class="bg-brand-darker text-white antialiased selection:bg-brand-gold selection:text-brand-darker">
@@ -111,20 +116,15 @@
 
             <!-- Logo -->
             <a href="#" class="flex items-center gap-4 group">
-                <!--
-                     UPDATED LOGO CONTAINER
-                     Added 'group-hover:text-brand-sage' to ensure the logo changes color with the text.
-                     Using CSS Mask to display assets/logo.svg while allowing color changes via bg-current.
-                -->
-                <div class="w-20 h-20 md:w-24 md:h-24 transition-transform group-hover:scale-105 duration-500 text-white group-hover:text-brand-sage drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                <div class="w-16 h-16 md:w-20 md:h-20 transition-transform group-hover:scale-105 duration-500 text-white group-hover:text-brand-sage drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
                     <div class="w-full h-full bg-current [mask-image:url('assets/logo.svg')] [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center]"></div>
                 </div>
+                <!--
                 <div class="flex flex-col">
-                    <!--
                     <span class="font-serif text-xl md:text-2xl font-bold tracking-wide leading-none text-white group-hover:text-brand-sage transition-colors">BearBnB</span>
                     <span class="text-[10px] uppercase tracking-[0.3em] text-brand-gold font-medium mt-1">Reno, NV</span>
-                    -->
                 </div>
+                -->
             </a>
 
             <!-- Desktop Menu -->
@@ -167,14 +167,10 @@
     </div>
 
     <!-- Hero Section -->
-    <!-- Added 'pt-28' to creating a safe zone for the navbar in portrait mode -->
+    <!-- UPDATED: Includes Mobile Landscape & Portrait Height/Padding Fixes -->
     <section class="relative min-h-[100svh] flex flex-col items-center justify-center pt-28 landscape:justify-start landscape:pt-32 lg:landscape:justify-center lg:landscape:pt-0 overflow-hidden">
-    <div class="absolute inset-0 z-0">
-            <!--
-                Using a fallback mechanism here.
-                It tries to load 'assets/hero.png'.
-                If that fails (wrong path/folder name), it loads the Unsplash placeholder.
-            -->
+        <!-- Background Image with Ken Burns Effect -->
+        <div class="absolute inset-0 z-0">
             <img src="assets/hero.png"
                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1528154130836-368c3d0cb143?q=80&w=2966&auto=format&fit=crop';"
                  alt="Luxury Mercedes Sprinter Van Fireside"
@@ -188,40 +184,36 @@
         <!-- Content -->
         <div class="relative z-20 text-center px-6 max-w-6xl mx-auto pb-10 md:pb-0">
             <div class="animate-fade-in-up" style="animation-delay: 0.2s; opacity: 0;">
-                <span class="inline-block text-brand-gold uppercase tracking-[0.4em] text-xs md:text-sm mb-6 font-bold bg-black/40 px-6 py-2 rounded-full border border-white/10 backdrop-blur-md">
+                <span class="inline-block text-brand-gold uppercase tracking-[0.4em] text-[10px] md:text-sm mb-2 md:mb-6 font-bold bg-black/40 px-6 py-2 rounded-full border border-white/10 backdrop-blur-md">
                     Hibernate in Style. Roam with Purpose.
                 </span>
             </div>
 
-            <h1 class="animate-fade-in-up font-serif text-5xl md:text-7xl lg:text-9xl font-medium leading-tight mb-8 text-white drop-shadow-2xl" style="animation-delay: 0.4s; opacity: 0;">
+            <h1 class="animate-fade-in-up font-serif text-3xl sm:text-5xl lg:text-9xl font-medium leading-tight mb-4 md:mb-8 text-white drop-shadow-2xl" style="animation-delay: 0.4s; opacity: 0;">
                 Unleash your <br/>
                 <span class="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">Reno-Tahoe Adventure.</span>
             </h1>
 
-            <p class="animate-fade-in-up max-w-2xl mx-auto text-gray-200 text-lg md:text-xl mb-12 font-light leading-relaxed drop-shadow-lg" style="animation-delay: 0.6s; opacity: 0;">
+            <p class="animate-fade-in-up max-w-2xl mx-auto text-gray-200 text-sm md:text-xl mb-6 md:mb-12 font-light leading-relaxed drop-shadow-lg" style="animation-delay: 0.6s; opacity: 0;">
                 The ultimate High Sierra basecamp. Luxury Mercedes-Benz Sprinter rentals and private suite, perfectly positioned for your Reno-Tahoe escape.
             </p>
 
-            <div class="animate-fade-in-up flex flex-col md:flex-row gap-6 justify-center items-center active" style="animation-delay: 0.8s; opacity: 1;">
+            <div class="animate-fade-in-up flex flex-col md:flex-row gap-4 md:gap-6 justify-center items-center" style="animation-delay: 0.8s; opacity: 0;">
 
-                <!-- Button 1: Check Dates -->
-                <!-- CHANGE: Replaced 'min-w-[200px]' with 'w-64' and added 'text-center' -->
-                <a href="https://www.outdoorsy.com/rv-rental/reno_nv/2012_mercedes-benz_sprinter_434747-listing" target="_blank" class="btn-lux text-white px-8 py-5 rounded-full font-bold text-sm tracking-widest uppercase w-64 text-center">
+                <!-- Fixed Width Buttons -->
+                <a href="https://www.outdoorsy.com/rv-rental/reno_nv/2012_mercedes-benz_sprinter_434747-listing" target="_blank" class="btn-lux text-white px-8 py-3 md:py-5 rounded-full font-bold text-sm tracking-widest uppercase w-64 text-center">
                     Check Dates
                 </a>
 
-                <!-- Button 2: Explore Vehicle -->
-                <!-- CHANGE: Replaced 'min-w-[200px]' with 'w-64', added 'text-center', and added 'border border-transparent' to match height -->
-                <a href="#van" class="group relative px-8 py-5 rounded-full font-bold text-sm tracking-widest uppercase text-white overflow-hidden w-64 text-center border border-transparent">
+                <a href="#van" class="group relative px-8 py-3 md:py-5 rounded-full font-bold text-sm tracking-widest uppercase text-white overflow-hidden w-64 text-center border border-transparent">
                     <span class="relative z-10 group-hover:text-brand-darker transition-colors duration-300">Explore Vehicle</span>
                     <div class="absolute inset-0 border border-white/30 rounded-full"></div>
                     <div class="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
                 </a>
-
             </div>
         </div>
 
-        <!-- Scroll Indicator -->
+        <!-- Scroll Indicator: Hidden on Mobile Landscape -->
         <div class="absolute bottom-5 left-0 w-full flex justify-center animate-bounce z-20 text-white/50 landscape:hidden lg:landscape:flex">
             <i data-lucide="arrow-down" class="w-6 h-6"></i>
         </div>
@@ -229,7 +221,6 @@
 
     <!-- Concept Section (About) -->
     <section id="about" class="py-32 px-6 md:px-12 bg-brand-darker relative">
-        <!-- Subtle Glow -->
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-green/5 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -276,7 +267,6 @@
             <div class="reveal order-1 lg:order-2 relative group">
                 <div class="absolute -inset-4 bg-gradient-to-r from-brand-gold/20 to-brand-green/20 rounded-2xl blur-lg opacity-50 group-hover:opacity-100 transition duration-700"></div>
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-                     <!-- Placeholder for interior shot -->
                     <img src="assets/interior.webp" alt="Cozy Van Interior" class="w-full h-[600px] object-cover transition-transform duration-1000 group-hover:scale-105">
                     <div class="absolute bottom-0 left-0 p-10 bg-gradient-to-t from-black via-black/50 to-transparent w-full">
                         <div class="text-white font-serif text-3xl italic">"The perfect basecamp."</div>
@@ -288,7 +278,6 @@
 
     <!-- The Van Section -->
     <section id="van" class="py-32 px-6 md:px-12 bg-[#050a10] text-white relative border-y border-white/5">
-        <!-- Background decoration -->
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
 
         <div class="max-w-7xl mx-auto relative z-10">
@@ -301,7 +290,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                <!-- Feature 1 -->
                 <div class="reveal glass-panel p-12 rounded-[2rem] hover:border-brand-green/30 transition-all group hover:-translate-y-2">
                     <div class="flex justify-between items-start mb-8">
                         <div class="bg-gradient-to-br from-brand-green to-brand-forest w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg shadow-brand-green/20 group-hover:scale-110 transition-transform duration-500">
@@ -313,7 +301,6 @@
                     <p class="text-gray-400 leading-relaxed text-lg font-light">Equipped with aggressive all-terrain tires and a high-efficiency Espar diesel heater to keep you toasty in sub-zero temps.</p>
                 </div>
 
-                <!-- Feature 2 -->
                 <div class="reveal glass-panel p-12 rounded-[2rem] hover:border-brand-green/30 transition-all group hover:-translate-y-2" style="transition-delay: 200ms;">
                      <div class="flex justify-between items-start mb-8">
                         <div class="bg-gradient-to-br from-brand-green to-brand-forest w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg shadow-brand-green/20 group-hover:scale-110 transition-transform duration-500">
@@ -366,7 +353,6 @@
 
     <!-- The Apartment Section (Brief) -->
     <section id="stay" class="py-32 px-6 bg-brand-darker relative overflow-hidden">
-        <!-- Animated glow effect -->
         <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-green/5 rounded-full blur-[120px] animate-pulse"></div>
 
         <div class="max-w-4xl mx-auto text-center relative z-10 reveal">
@@ -374,7 +360,8 @@
             <p class="text-gray-400 text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
                 Need a place to crash before or after your rental? Our attached private apartment suite offers a modern bathroom, kitchen, and high-speed WiFi. It's the perfect decompression chamber.
             </p>
-            <button class="border border-brand-gray/30 text-white px-10 py-4 rounded-full hover:bg-white hover:text-brand-darker transition-all duration-300 hover:border-white font-bold tracking-widest uppercase text-sm">
+            <!-- UPDATED: Now triggers the modal -->
+            <button onclick="openModal('contact-modal')" class="border border-brand-gray/30 text-white px-10 py-4 rounded-full hover:bg-white hover:text-brand-darker transition-all duration-300 hover:border-white font-bold tracking-widest uppercase text-sm">
                 Inquire About The Suite
             </button>
         </div>
@@ -386,11 +373,12 @@
 
             <div class="flex flex-col items-center md:items-start text-center md:text-left">
                  <div class="flex items-center gap-3 mb-6">
-                    <!-- Footer Logo also updated to use mask -->
-                    <div class="w-32 h-32 opacity-80 text-white">
+                    <div class="w-20 h-20 opacity-80 text-white">
                         <div class="w-full h-full bg-current [mask-image:url('assets/logo.svg')] [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center]"></div>
                     </div>
-                    <!-- <span class="font-serif text-2xl text-white tracking-wide">BearBnB Reno</span> -->
+                    <!--
+                    <span class="font-serif text-2xl text-white tracking-wide">BearBnB Reno</span>
+                    -->
                 </div>
                 <p class="text-gray-500 text-sm max-w-xs leading-relaxed">
                     Luxury Sprinter Rental & Private Suite <br> in the Heart of the High Sierra.
@@ -400,7 +388,8 @@
             <div class="flex gap-10 text-sm text-gray-400 font-medium tracking-widest uppercase">
                 <a href="#" class="hover:text-brand-gold transition-colors">Home</a>
                 <a href="https://www.outdoorsy.com/rv-rental/reno_nv/2012_mercedes-benz_sprinter_434747-listing" class="hover:text-brand-gold transition-colors">Book Now</a>
-                <a href="#" class="hover:text-brand-gold transition-colors">Contact</a>
+                <!-- UPDATED: Now triggers the modal -->
+                <a href="#" onclick="openModal('contact-modal'); return false;" class="hover:text-brand-gold transition-colors">Contact</a>
             </div>
 
             <div class="flex flex-col items-center md:items-end">
@@ -413,34 +402,81 @@
         </div>
     </footer>
 
+    <!-- Contact Modal (NEW) -->
+    <div id="contact-modal" class="fixed inset-0 z-[60] hidden">
+        <!-- Dark Backdrop -->
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm transition-opacity" onclick="closeModal('contact-modal')"></div>
+
+        <!-- Modal Content -->
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg p-4 md:p-6">
+            <div class="bg-[#0f172a] border border-white/10 rounded-2xl p-6 md:p-8 shadow-2xl relative">
+
+                <!-- Close Button -->
+                <button onclick="closeModal('contact-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+
+                <!-- Header -->
+                <div class="mb-6">
+                    <h3 class="font-serif text-2xl md:text-3xl text-white mb-2">Start Your Adventure</h3>
+                    <p class="text-gray-400 text-sm font-light">Tell us a bit about your trip plans.</p>
+                </div>
+
+                <!-- Form -->
+                <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-brand-gold mb-2">Name</label>
+                        <input type="text" id="contact-name" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="Your Name">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-brand-gold mb-2">Email</label>
+                        <input type="email" id="contact-email" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="your@email.com">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-brand-gold mb-2">Travel Dates (Optional)</label>
+                        <input type="text" id="contact-dates" class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="e.g. Oct 12 - Oct 15">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-brand-gold mb-2">Message</label>
+                        <textarea id="contact-message" rows="4" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="I'm interested in the suite or van..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full btn-lux text-white py-4 rounded-lg font-bold tracking-widest uppercase text-sm mt-4 hover:brightness-110 transition-all">
+                        Send Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts for Interactivity -->
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Scroll Animation Observer (Improved)
+        // Scroll Animation Observer
         const observerOptions = {
-            threshold: 0.1, // Trigger when 10% of item is visible
-            rootMargin: "0px 0px -50px 0px" // Trigger slightly before it hits bottom of screen
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    // Stop observing once activated to improve performance
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Add reveal class to items on load to ensure script catches them
         document.addEventListener('DOMContentLoaded', () => {
              document.querySelectorAll('.reveal, .animate-fade-in-up').forEach(el => observer.observe(el));
         });
 
-
-        // Mobile Menu Toggle
+        // Mobile Menu Logic
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const closeMenuBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -453,10 +489,7 @@
 
         mobileMenuBtn.addEventListener('click', toggleMenu);
         closeMenuBtn.addEventListener('click', toggleMenu);
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', toggleMenu);
-        });
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
 
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
@@ -469,6 +502,46 @@
                 navbar.classList.add('bg-gradient-to-b', 'py-4');
             }
         });
+
+        // --- NEW: Contact Modal Logic ---
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('hidden');
+            // Force a small reflow/timeout to allow transition if we added one (optional, keeping it simple here)
+            document.body.classList.add('overflow-hidden'); // Prevent background scrolling
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // --- NEW: Handle Form Submit (Mailto Generator) ---
+        function handleFormSubmit(e) {
+            e.preventDefault();
+
+            // Get values
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const dates = document.getElementById('contact-dates').value;
+            const message = document.getElementById('contact-message').value;
+
+            // Construct Email Body
+            const subject = encodeURIComponent("Inquiry from BearBnB Website");
+            const body = encodeURIComponent(
+                `Name: ${name}\n` +
+                `Email: ${email}\n` +
+                `Dates: ${dates}\n\n` +
+                `Message:\n${message}`
+            );
+
+            // Open Mail Client
+            window.location.href = `mailto:krishtof@bearbnbreno.com?subject=${subject}&body=${body}`;
+
+            // Optional: Close modal after sending
+            closeModal('contact-modal');
+        }
     </script>
 </body>
 </html>
