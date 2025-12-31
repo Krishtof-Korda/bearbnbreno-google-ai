@@ -167,8 +167,7 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="relative h-[100svh] flex items-center justify-center overflow-hidden">
-        <!-- Background Image with Ken Burns Effect -->
+    <section class="relative min-h-[100svh] flex flex-col items-center justify-center landscape:justify-start landscape:pt-32 lg:landscape:justify-center lg:landscape:pt-0 overflow-hidden">        <!-- Background Image with Ken Burns Effect -->
         <div class="absolute inset-0 z-0">
             <!--
                 Using a fallback mechanism here.
@@ -186,7 +185,7 @@
         </div>
 
         <!-- Content -->
-        <div class="relative z-20 text-center px-6 max-w-6xl mx-auto mt-10">
+        <div class="relative z-20 text-center px-6 max-w-6xl mx-auto pb-10 md:pb-0">
             <div class="animate-fade-in-up" style="animation-delay: 0.2s; opacity: 0;">
                 <span class="inline-block text-brand-gold uppercase tracking-[0.4em] text-xs md:text-sm mb-6 font-bold bg-black/40 px-6 py-2 rounded-full border border-white/10 backdrop-blur-md">
                     Hibernate in Style. Roam with Purpose.
@@ -222,7 +221,7 @@
         </div>
 
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-0 w-full flex justify-center animate-bounce z-20 text-white/50">
+        <div class="absolute bottom-5 left-0 w-full flex justify-center animate-bounce z-20 text-white/50 landscape:hidden lg:landscape:flex">
             <i data-lucide="arrow-down" class="w-6 h-6"></i>
         </div>
     </section>
