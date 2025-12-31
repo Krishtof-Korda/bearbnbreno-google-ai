@@ -423,25 +423,27 @@
                 </div>
 
                 <!-- Form -->
+                <!-- UPDATED: Using onsubmit to trigger AJAX fetch -->
                 <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <input type="hidden" name="_subject" value="New Inquiry - BearBnB">
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-brand-gold mb-2">Name</label>
-                        <input type="text" id="contact-name" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="Your Name">
+                        <input type="text" name="name" id="contact-name" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="Your Name">
                     </div>
 
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-brand-gold mb-2">Email</label>
-                        <input type="email" id="contact-email" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="your@email.com">
+                        <input type="email" name="email" id="contact-email" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="your@email.com">
                     </div>
 
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-brand-gold mb-2">Travel Dates (Optional)</label>
-                        <input type="text" id="contact-dates" class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="e.g. Oct 12 - Oct 15">
+                        <input type="text" name="dates" id="contact-dates" class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="e.g. Oct 12 - Oct 15">
                     </div>
 
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-brand-gold mb-2">Message</label>
-                        <textarea id="contact-message" rows="4" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="I'm interested in the suite or van..."></textarea>
+                        <textarea name="message" id="contact-message" rows="4" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="I'm interested in the suite or van..."></textarea>
                     </div>
 
                     <button type="submit" class="w-full btn-lux text-white py-4 rounded-lg font-bold tracking-widest uppercase text-sm mt-4 hover:brightness-110 transition-all">
@@ -517,30 +519,38 @@
             document.body.classList.remove('overflow-hidden');
         }
 
-        // --- NEW: Handle Form Submit (Mailto Generator) ---
+        // --- NEW: Handle Form Submit (FormSubmit.co AJAX) ---
         function handleFormSubmit(e) {
             e.preventDefault();
 
-            // Get values
-            const name = document.getElementById('contact-name').value;
-            const email = document.getElementById('contact-email').value;
-            const dates = document.getElementById('contact-dates').value;
-            const message = document.getElementById('contact-message').value;
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = 'Sending...';
+            btn.disabled = true;
 
-            // Construct Email Body
-            const subject = encodeURIComponent("Inquiry from BearBnB Website");
-            const body = encodeURIComponent(
-                `Name: ${name}\n` +
-                `Email: ${email}\n` +
-                `Dates: ${dates}\n\n` +
-                `Message:\n${message}`
-            );
-
-            // Open Mail Client
-            window.location.href = `mailto:krishtof@bearbnbreno.com?subject=${subject}&body=${body}`;
-
-            // Optional: Close modal after sending
-            closeModal('contact-modal');
+            // Use fetch to POST the form data to FormSubmit
+            fetch("https://formsubmit.co/ajax/krishtof@bearbnbreno.com", {
+                method: "POST",
+                body: new FormData(e.target)
+            })
+            .then(response => response.json())
+            .then(data => {
+                btn.innerText = 'Message Sent!';
+                btn.classList.add('bg-brand-green', 'border-brand-green'); // Visual feedback
+                setTimeout(() => {
+                    closeModal('contact-modal');
+                    // Reset form
+                    e.target.reset();
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                    btn.classList.remove('bg-brand-green', 'border-brand-green');
+                }, 2000);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                btn.innerText = 'Error. Try again.';
+                btn.disabled = false;
+            });
         }
     </script>
 </body>
