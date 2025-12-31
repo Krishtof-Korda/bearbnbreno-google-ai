@@ -167,8 +167,9 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="relative min-h-[100svh] flex flex-col items-center justify-center landscape:justify-start landscape:pt-32 lg:landscape:justify-center lg:landscape:pt-0 overflow-hidden">        <!-- Background Image with Ken Burns Effect -->
-        <div class="absolute inset-0 z-0">
+    <!-- Added 'pt-28' to creating a safe zone for the navbar in portrait mode -->
+    <section class="relative min-h-[100svh] flex flex-col items-center justify-center pt-28 landscape:justify-start landscape:pt-32 lg:landscape:justify-center lg:landscape:pt-0 overflow-hidden">
+    <div class="absolute inset-0 z-0">
             <!--
                 Using a fallback mechanism here.
                 It tries to load 'assets/hero.png'.
