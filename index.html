@@ -202,20 +202,27 @@
                 The ultimate High Sierra basecamp. Luxury Mercedes-Benz Sprinter rentals and private suite, perfectly positioned for your Reno-Tahoe escape.
             </p>
 
-            <div class="animate-fade-in-up flex flex-col md:flex-row gap-6 justify-center items-center" style="animation-delay: 0.8s; opacity: 0;">
-                <a href="https://www.outdoorsy.com/rv-rental/reno_nv/2012_mercedes-benz_sprinter_434747-listing" target="_blank" class="btn-lux text-white px-10 py-5 rounded-full font-bold text-sm tracking-widest uppercase min-w-[200px]">
+            <div class="animate-fade-in-up flex flex-col md:flex-row gap-6 justify-center items-center active" style="animation-delay: 0.8s; opacity: 1;">
+
+                <!-- Button 1: Check Dates -->
+                <!-- CHANGE: Replaced 'min-w-[200px]' with 'w-64' and added 'text-center' -->
+                <a href="https://www.outdoorsy.com/rv-rental/reno_nv/2012_mercedes-benz_sprinter_434747-listing" target="_blank" class="btn-lux text-white px-8 py-5 rounded-full font-bold text-sm tracking-widest uppercase w-64 text-center">
                     Check Dates
                 </a>
-                <a href="#van" class="group relative px-10 py-5 rounded-full font-bold text-sm tracking-widest uppercase text-white overflow-hidden min-w-[200px]">
+
+                <!-- Button 2: Explore Vehicle -->
+                <!-- CHANGE: Replaced 'min-w-[200px]' with 'w-64', added 'text-center', and added 'border border-transparent' to match height -->
+                <a href="#van" class="group relative px-8 py-5 rounded-full font-bold text-sm tracking-widest uppercase text-white overflow-hidden w-64 text-center border border-transparent">
                     <span class="relative z-10 group-hover:text-brand-darker transition-colors duration-300">Explore Vehicle</span>
                     <div class="absolute inset-0 border border-white/30 rounded-full"></div>
                     <div class="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
                 </a>
+
             </div>
         </div>
 
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-20 text-white/50">
+        <div class="absolute bottom-10 left-0 w-full flex justify-center animate-bounce z-20 text-white/50">
             <i data-lucide="arrow-down" class="w-6 h-6"></i>
         </div>
     </section>
