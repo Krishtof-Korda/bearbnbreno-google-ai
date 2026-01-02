@@ -458,8 +458,8 @@
         <div class="absolute inset-0 bg-black/90 backdrop-blur-sm transition-opacity" onclick="closeModal('contact-modal')"></div>
         
         <!-- Modal Content -->
-        <div class="absolute inset-0 flex items-center justify-center p-4 md:p-6 overflow-y-auto">
-            <div class="bg-[#0f172a] border border-white/10 rounded-2xl p-6 md:p-8 shadow-2xl relative w-full max-w-lg my-auto">
+        <div class="absolute inset-0 flex items-start md:items-center justify-center p-4 md:p-6 overflow-y-auto" id="modal-content-wrapper">
+            <div class="bg-[#0f172a] border border-white/10 rounded-2xl p-6 md:p-8 shadow-2xl relative w-full max-w-lg mt-4 md:mt-0 mb-4 md:mb-0" id="modal-content-inner">
                 
                 <!-- Close Button -->
                 <button onclick="closeModal('contact-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-10">
@@ -477,22 +477,22 @@
                     <input type="hidden" name="_subject" value="New Inquiry - BearBnB">
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-brand-gold mb-2">Name</label>
-                        <input type="text" name="name" id="contact-name" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white text-base focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="Your Name" style="font-size: 16px; -webkit-appearance: none; -webkit-tap-highlight-color: transparent;">
+                        <input type="text" name="name" id="contact-name" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white text-base focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="Your Name" style="font-size: 16px; appearance: none; -webkit-appearance: none; -webkit-tap-highlight-color: transparent;">
                     </div>
                     
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-brand-gold mb-2">Email</label>
-                        <input type="email" name="email" id="contact-email" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white text-base focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="your@email.com" style="font-size: 16px; -webkit-appearance: none; -webkit-tap-highlight-color: transparent;">
+                        <input type="email" name="email" id="contact-email" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white text-base focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="your@email.com" style="font-size: 16px; appearance: none; -webkit-appearance: none; -webkit-tap-highlight-color: transparent;">
                     </div>
 
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-brand-gold mb-2">Travel Dates (Optional)</label>
-                        <input type="text" name="dates" id="contact-dates" class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white text-base focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="e.g. Oct 12 - Oct 15" style="font-size: 16px; -webkit-appearance: none; -webkit-tap-highlight-color: transparent;">
+                        <input type="text" name="dates" id="contact-dates" class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white text-base focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="e.g. Oct 12 - Oct 15" style="font-size: 16px; appearance: none; -webkit-appearance: none; -webkit-tap-highlight-color: transparent;">
                     </div>
 
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-brand-gold mb-2">Message</label>
-                        <textarea name="message" id="contact-message" rows="4" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white text-base focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all resize-none" placeholder="I'm interested in the suite or van..." style="font-size: 16px; -webkit-appearance: none; -webkit-tap-highlight-color: transparent;"></textarea>
+                        <textarea name="message" id="contact-message" rows="4" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white text-base focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all resize-none" placeholder="I'm interested in the suite or van..." style="font-size: 16px; appearance: none; -webkit-appearance: none; -webkit-tap-highlight-color: transparent;"></textarea>
                     </div>
 
                     <button type="submit" class="w-full btn-lux text-white py-4 rounded-lg font-bold tracking-widest uppercase text-sm mt-4 hover:brightness-110 transition-all" style="-webkit-tap-highlight-color: transparent;">
@@ -579,32 +579,89 @@
             }
         }
 
-        // Mobile form field focus handling
+        // Mobile form field focus handling with forced position recalculation
         document.addEventListener('DOMContentLoaded', () => {
             const formFields = ['contact-name', 'contact-email', 'contact-dates', 'contact-message'];
+            const modalWrapper = document.getElementById('modal-content-wrapper');
+            const modalInner = document.getElementById('modal-content-inner');
+            
+            // Function to force position recalculation
+            function forceReposition(field) {
+                // Force a reflow by reading layout properties
+                void field.offsetHeight;
+                void modalWrapper.offsetHeight;
+                void modalInner.offsetHeight;
+                
+                // Use requestAnimationFrame to ensure it happens after layout
+                requestAnimationFrame(() => {
+                    // Small programmatic scroll to trigger browser recalculation
+                    const currentScroll = modalWrapper.scrollTop;
+                    modalWrapper.scrollTop = currentScroll + 1;
+                    requestAnimationFrame(() => {
+                        modalWrapper.scrollTop = currentScroll;
+                        
+                        // Scroll the field into view
+                        field.scrollIntoView({ 
+                            behavior: 'auto', 
+                            block: 'center', 
+                            inline: 'nearest' 
+                        });
+                    });
+                });
+            }
             
             formFields.forEach(fieldId => {
                 const field = document.getElementById(fieldId);
                 if (!field) return;
                 
-                // Handle focus - scroll field into view on mobile
-                field.addEventListener('focus', function() {
-                    // Small delay to ensure keyboard is shown
+                // Handle focus with forced repositioning
+                field.addEventListener('focus', function(e) {
+                    // Immediate scroll
+                    this.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' });
+                    
+                    // Force reposition after keyboard appears
                     setTimeout(() => {
-                        this.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
-                    }, 300);
+                        forceReposition(this);
+                    }, 100);
+                    
+                    // Additional reposition after longer delay (keyboard animation)
+                    setTimeout(() => {
+                        forceReposition(this);
+                    }, 400);
                 });
                 
-                // Prevent zoom on iOS by ensuring font-size is at least 16px
+                // Also handle on touch to catch early
                 field.addEventListener('touchstart', function() {
+                    // Ensure font-size is at least 16px
                     if (window.getComputedStyle(this).fontSize) {
                         const fontSize = parseFloat(window.getComputedStyle(this).fontSize);
                         if (fontSize < 16) {
                             this.style.fontSize = '16px';
                         }
                     }
+                }, { passive: true });
+                
+                // Handle input event to maintain cursor position
+                field.addEventListener('input', function() {
+                    // Force a small scroll to trigger position recalculation
+                    requestAnimationFrame(() => {
+                        const scrollPos = modalWrapper.scrollTop;
+                        modalWrapper.scrollTop = scrollPos;
+                    });
                 });
             });
+            
+            // Handle visual viewport changes (keyboard appearance)
+            if (window.visualViewport) {
+                window.visualViewport.addEventListener('resize', () => {
+                    const activeElement = document.activeElement;
+                    if (activeElement && formFields.includes(activeElement.id)) {
+                        setTimeout(() => {
+                            forceReposition(activeElement);
+                        }, 100);
+                    }
+                });
+            }
         });
 
         // --- NEW: Handle Form Submit (FormSubmit.co AJAX) ---
