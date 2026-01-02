@@ -458,11 +458,11 @@
         <div class="absolute inset-0 bg-black/90 backdrop-blur-sm transition-opacity" onclick="closeModal('contact-modal')"></div>
         
         <!-- Modal Content -->
-        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg p-4 md:p-6">
-            <div class="bg-[#0f172a] border border-white/10 rounded-2xl p-6 md:p-8 shadow-2xl relative">
+        <div class="absolute inset-0 flex items-center justify-center p-4 md:p-6 overflow-y-auto">
+            <div class="bg-[#0f172a] border border-white/10 rounded-2xl p-6 md:p-8 shadow-2xl relative w-full max-w-lg my-auto">
                 
                 <!-- Close Button -->
-                <button onclick="closeModal('contact-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                <button onclick="closeModal('contact-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-10">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
 
@@ -477,25 +477,25 @@
                     <input type="hidden" name="_subject" value="New Inquiry - BearBnB">
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-brand-gold mb-2">Name</label>
-                        <input type="text" name="name" id="contact-name" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="Your Name">
+                        <input type="text" name="name" id="contact-name" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white text-base focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="Your Name" style="font-size: 16px; -webkit-appearance: none; -webkit-tap-highlight-color: transparent;">
                     </div>
                     
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-brand-gold mb-2">Email</label>
-                        <input type="email" name="email" id="contact-email" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="your@email.com">
+                        <input type="email" name="email" id="contact-email" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white text-base focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="your@email.com" style="font-size: 16px; -webkit-appearance: none; -webkit-tap-highlight-color: transparent;">
                     </div>
 
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-brand-gold mb-2">Travel Dates (Optional)</label>
-                        <input type="text" name="dates" id="contact-dates" class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="e.g. Oct 12 - Oct 15">
+                        <input type="text" name="dates" id="contact-dates" class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white text-base focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="e.g. Oct 12 - Oct 15" style="font-size: 16px; -webkit-appearance: none; -webkit-tap-highlight-color: transparent;">
                     </div>
 
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-brand-gold mb-2">Message</label>
-                        <textarea name="message" id="contact-message" rows="4" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all" placeholder="I'm interested in the suite or van..."></textarea>
+                        <textarea name="message" id="contact-message" rows="4" required class="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white text-base focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all resize-none" placeholder="I'm interested in the suite or van..." style="font-size: 16px; -webkit-appearance: none; -webkit-tap-highlight-color: transparent;"></textarea>
                     </div>
 
-                    <button type="submit" class="w-full btn-lux text-white py-4 rounded-lg font-bold tracking-widest uppercase text-sm mt-4 hover:brightness-110 transition-all">
+                    <button type="submit" class="w-full btn-lux text-white py-4 rounded-lg font-bold tracking-widest uppercase text-sm mt-4 hover:brightness-110 transition-all" style="-webkit-tap-highlight-color: transparent;">
                         Send Inquiry
                     </button>
                 </form>
@@ -558,15 +558,54 @@
         function openModal(id) {
             const modal = document.getElementById(id);
             modal.classList.remove('hidden');
-            // Force a small reflow/timeout to allow transition if we added one (optional, keeping it simple here)
             document.body.classList.add('overflow-hidden'); // Prevent background scrolling
+            
+            // Prevent iOS zoom on input focus
+            const viewport = document.querySelector('meta[name="viewport"]');
+            if (viewport) {
+                viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+            }
         }
 
         function closeModal(id) {
             const modal = document.getElementById(id);
             modal.classList.add('hidden');
             document.body.classList.remove('overflow-hidden');
+            
+            // Restore viewport scaling
+            const viewport = document.querySelector('meta[name="viewport"]');
+            if (viewport) {
+                viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+            }
         }
+
+        // Mobile form field focus handling
+        document.addEventListener('DOMContentLoaded', () => {
+            const formFields = ['contact-name', 'contact-email', 'contact-dates', 'contact-message'];
+            
+            formFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field) return;
+                
+                // Handle focus - scroll field into view on mobile
+                field.addEventListener('focus', function() {
+                    // Small delay to ensure keyboard is shown
+                    setTimeout(() => {
+                        this.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+                    }, 300);
+                });
+                
+                // Prevent zoom on iOS by ensuring font-size is at least 16px
+                field.addEventListener('touchstart', function() {
+                    if (window.getComputedStyle(this).fontSize) {
+                        const fontSize = parseFloat(window.getComputedStyle(this).fontSize);
+                        if (fontSize < 16) {
+                            this.style.fontSize = '16px';
+                        }
+                    }
+                });
+            });
+        });
 
         // --- NEW: Handle Form Submit (FormSubmit.co AJAX) ---
         function handleFormSubmit(e) {
