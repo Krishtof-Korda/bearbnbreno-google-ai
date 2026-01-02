@@ -116,7 +116,7 @@
             
             <!-- Logo -->
             <a href="#" class="flex items-center gap-4 group">
-                <div class="w-16 h-16 md:w-20 md:h-20 transition-transform group-hover:scale-105 duration-500 text-white group-hover:text-brand-sage drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                <div class="w-16 h-16 md:w-24 md:h-24 transition-transform group-hover:scale-105 duration-500 text-white group-hover:text-brand-sage drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
                     <div class="w-full h-full bg-current [mask-image:url('assets/logo.svg')] [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center]"></div>
                 </div>
                 <!--
@@ -355,17 +355,40 @@
                 <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2940&auto=format&fit=crop" class="img-zoom w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Sierra Mountains">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
             </div>
-             <div class="img-zoom-container h-64 md:h-full bg-brand-darker flex items-center justify-center p-8 text-center group">
-                 <div class="group-hover:scale-105 transition-transform duration-300">
-                    <div class="w-20 h-20 bg-gradient-to-br from-brand-green to-brand-forest rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-brand-green/20 border border-white/10">
-                        <i data-lucide="instagram" class="w-8 h-8 text-white"></i>
+             <div class="img-zoom-container h-64 md:h-full bg-brand-darker flex flex-col items-center justify-center p-4 md:p-8 group overflow-hidden relative">
+                 <!-- Custom Instagram Card -->
+                 <a href="https://www.instagram.com/bearbnbreno/" target="_blank" class="w-full h-full flex flex-col items-center justify-center group/ig hover:scale-105 transition-transform duration-300">
+                    <!-- Instagram Icon Badge -->
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-brand-green to-brand-forest rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-2xl shadow-brand-green/20 border border-white/10 group-hover/ig:scale-110 transition-transform duration-300">
+                        <i data-lucide="instagram" class="w-6 h-6 md:w-8 md:h-8 text-white"></i>
                     </div>
-                    <h3 class="font-serif text-white text-3xl font-medium mb-3">Follow the Bear</h3>
-                    <p class="text-gray-400 mb-6 font-light">See our latest adventures</p>
-                    <span class="text-brand-gold font-bold tracking-widest text-sm uppercase">
-                        <a href="https://www.facebook.com/people/Bearbnb-Reno-Luxury-Adventure-Van-Apartment-Rentals/61585414517837/">@BearBnBReno</a>
-                    </span>
-                 </div>
+                    
+                    <!-- Profile Info -->
+                    <div class="text-center mb-4">
+                        <h3 class="font-serif text-white text-xl md:text-3xl font-medium mb-2">Follow the Bear</h3>
+                        <p class="text-gray-400 text-sm md:text-base font-light mb-3">@bearbnbreno</p>
+                        <div class="flex items-center justify-center gap-4 text-xs md:text-sm text-gray-500 mb-4">
+                            <span class="flex items-center gap-1">
+                                <i data-lucide="image" class="w-3 h-3 md:w-4 md:h-4"></i>
+                                <span>Photos</span>
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <i data-lucide="video" class="w-3 h-3 md:w-4 md:h-4"></i>
+                                <span>Videos</span>
+                            </span>
+                        </div>
+                        
+                        <!-- CTA Button with fill animation -->
+                        <div class="relative inline-block px-6 py-3 rounded-full font-bold text-xs md:text-sm tracking-widest uppercase text-white overflow-hidden border border-transparent">
+                            <span class="relative z-10 flex items-center gap-2 group-hover/ig:text-brand-darker transition-colors duration-300">
+                                View Profile
+                                <i data-lucide="arrow-right" class="w-4 h-4 group-hover/ig:translate-x-1 transition-transform"></i>
+                            </span>
+                            <div class="absolute inset-0 border border-white/30 rounded-full"></div>
+                            <div class="absolute inset-0 bg-white transform scale-x-0 group-hover/ig:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
+                        </div>
+                    </div>
+                 </a>
             </div>
         </div>
     </section>
@@ -380,8 +403,10 @@
                 Need a place to crash before or after your rental? Our attached private apartment suite offers a modern bathroom, kitchen, and high-speed WiFi. It's the perfect decompression chamber.
             </p>
             <!-- UPDATED: Now triggers the modal -->
-            <button onclick="openModal('contact-modal')" class="border border-brand-gray/30 text-white px-10 py-4 rounded-full hover:bg-white hover:text-brand-darker transition-all duration-300 hover:border-white font-bold tracking-widest uppercase text-sm">
-                Inquire About The Suite
+            <button onclick="openModal('contact-modal')" class="group relative px-10 py-4 rounded-full font-bold text-sm tracking-widest uppercase text-white overflow-hidden border border-transparent">
+                <span class="relative z-10 group-hover:text-brand-darker transition-colors duration-300">Inquire About The Suite</span>
+                <div class="absolute inset-0 border border-white/30 rounded-full"></div>
+                <div class="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
             </button>
         </div>
     </section>
@@ -408,8 +433,10 @@
             </div>
 
             <div class="flex flex-col items-center md:items-end">
-                <a href="https://www.outdoorsy.com/rv-rental/reno_nv/2012_mercedes-benz_sprinter_434747-listing" target="_blank" class="bg-white text-black hover:bg-brand-gold transition-colors px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest mb-4">
-                    Rent on Outdoorsy
+                <a href="https://www.outdoorsy.com/rv-rental/reno_nv/2012_mercedes-benz_sprinter_434747-listing" target="_blank" class="group relative px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest mb-4 text-white overflow-hidden border border-transparent">
+                    <span class="relative z-10 group-hover:text-brand-darker transition-colors duration-300">Rent on Outdoorsy</span>
+                    <div class="absolute inset-0 border border-white/30 rounded-full"></div>
+                    <div class="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
                 </a>
                 <span class="text-xs text-gray-600">© 2025 BearBnB Reno. All rights reserved.</span>
             </div>
