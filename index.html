@@ -79,7 +79,69 @@
         "addressCountry": "US"
       },
       "url": "https://bearbnbreno.com",
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "telephone": "+1-775-XXX-XXXX"
+    }
+    </script>
+    
+    <!-- Product Schema for Sprinter Van Rental -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Luxury Mercedes-Benz Sprinter 170 Camper Van Rental",
+      "image": ["https://bearbnbreno.com/assets/hero.png", "https://bearbnbreno.com/assets/interior.webp"],
+      "description": "2012 Mercedes-Benz Sprinter 170. Fully outfitted 4-season camper van with queen bed, kitchen, solar power, and all amenities included.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Mercedes-Benz"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.outdoorsy.com/rv-rental/reno_nv/2012_mercedes-benz_sprinter_434747-listing",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/UsedCondition"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "1"
+      }
+    }
+    </script>
+    
+    <!-- Accommodation Schema for Bear Den Suite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Accommodation",
+      "name": "Bear Den Suite - Private Apartment",
+      "image": "https://bearbnbreno.com/assets/interior.webp",
+      "description": "Private apartment suite with modern bathroom, kitchen, and high-speed WiFi. Perfect basecamp for your Reno-Tahoe adventure.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Reno",
+        "addressRegion": "NV",
+        "addressCountry": "US"
+      },
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "WiFi",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Kitchen",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Private Bathroom",
+          "value": true
+        }
+      ]
     }
     </script>
     
@@ -253,6 +315,25 @@
                 <span class="inline-block text-brand-gold uppercase tracking-[0.4em] text-[10px] md:text-sm mb-2 md:mb-6 font-bold bg-black/40 px-6 py-2 rounded-full border border-white/10 backdrop-blur-md">
                     Hibernate in Style. Roam with Purpose.
                 </span>
+            </div>
+            
+            <!-- Trust Signals -->
+            <div class="animate-fade-in-up flex flex-wrap items-center justify-center gap-6 mb-6 md:mb-8" style="animation-delay: 0.3s; opacity: 0;">
+                <div class="flex items-center gap-2 text-sm text-gray-300">
+                    <i data-lucide="star" class="w-4 h-4 text-brand-gold fill-current"></i>
+                    <span class="font-semibold">5/5</span>
+                    <span class="text-gray-500">(1 review)</span>
+                </div>
+                <div class="hidden md:block w-1 h-1 bg-gray-600 rounded-full"></div>
+                <div class="flex items-center gap-2 text-sm text-gray-300">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-brand-green"></i>
+                    <span>Fully Insured</span>
+                </div>
+                <div class="hidden md:block w-1 h-1 bg-gray-600 rounded-full"></div>
+                <div class="flex items-center gap-2 text-sm text-gray-300">
+                    <i data-lucide="users" class="w-4 h-4 text-brand-green"></i>
+                    <span>5 Booking</span>
+                </div>
             </div>
             
             <h1 class="animate-fade-in-up font-serif text-3xl sm:text-5xl lg:text-9xl font-medium leading-tight mb-4 md:mb-8 text-white drop-shadow-2xl" style="animation-delay: 0.4s; opacity: 0;">
@@ -456,6 +537,47 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="py-32 px-6 bg-[#050a10] relative border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-gold uppercase tracking-[0.3em] text-xs font-bold mb-4 block">Guest Reviews</span>
+                <h2 class="font-serif text-4xl md:text-6xl mb-4 text-white">Words from the Wild</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Real experiences from adventurers who chose BearBnB Reno</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="placeholder"></div>
+                <div class="reveal glass-panel p-8 rounded-2xl border border-white/10">
+                    <div class="flex items-center gap-1 mb-4 text-brand-gold">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic leading-relaxed"></p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-brand-green/20 rounded-full flex items-center justify-center">
+                            <span class="text-brand-green font-bold">AM</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold">Amy M.</p>
+                            <p class="text-gray-500 text-sm">Dayton, NV</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="placeholder"></div>
+            </div>
+            
+            <div class="text-center mt-12 reveal">
+                <a href="https://www.outdoorsy.com/rv-rental/reno_nv/2012_mercedes-benz_sprinter_434747-listing" target="_blank" class="inline-flex items-center gap-2 text-brand-gold hover:text-brand-sage transition-colors text-sm font-medium">
+                    Read more reviews on Outdoorsy <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- The Apartment Section (Brief) -->
     <section id="stay" class="py-32 px-6 bg-brand-darker relative overflow-hidden">
         <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-green/5 rounded-full blur-[120px] animate-pulse"></div>
@@ -473,8 +595,89 @@
         </div>
     </section>
 
+    <!-- FAQ Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Do I need a special license to drive the Sprinter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No special license required! A standard driver's license is sufficient. The van is easy to drive and handles like a large SUV. Just watch out for low hanging branches :-P!"
+        }
+      },{
+        "@type": "Question",
+        "name": "What's included with the van rental?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Everything you need for adventure: queen memory foam bed, linens, cookware, induction cooktop, fridge, solar power, heater, toilet, and camping chairs/table. Just bring your clothes and food!"
+        }
+      },{
+        "@type": "Question",
+        "name": "Can I rent just the suite, or just the van?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You can rent either separately or combine them for the ultimate experience. Guests use the suite as a staging area before hitting the road."
+        }
+      },{
+        "@type": "Question",
+        "name": "Is the van suitable for winter camping?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely! The van is 4-season ready with a space heater, MaxxFan, Velit AC, wool insulation, and oversized all-terrain tires (chains included). Perfect for Tahoe winters and desert summers."
+        }
+      }]
+    }
+    </script>
+
+    <!-- FAQ Section -->
+    <section class="py-32 px-6 bg-brand-darker relative">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-gold uppercase tracking-[0.3em] text-xs font-bold mb-4 block">Frequently Asked</span>
+                <h2 class="font-serif text-4xl md:text-6xl mb-4 text-white">Questions & Answers</h2>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="reveal glass-panel p-6 rounded-xl border border-white/10">
+                    <h3 class="text-white font-serif text-xl mb-3">Do I need a special license to drive the Sprinter?</h3>
+                    <p class="text-gray-400 leading-relaxed">No special license required! A standard driver's license is sufficient. The van is easy to drive and handles like a large SUV. Just watch out for low hanging branches :-P!</p>
+                </div>
+                
+                <div class="reveal glass-panel p-6 rounded-xl border border-white/10" style="transition-delay: 100ms;">
+                    <h3 class="text-white font-serif text-xl mb-3">What's included with the van rental?</h3>
+                    <p class="text-gray-400 leading-relaxed">Everything you need for adventure: queen memory foam bed, linens, cookware, induction cooktop, fridge, solar power, heater, toilet, and camping chairs/table. Just bring your clothes and food!</p>
+                </div>
+                
+                <div class="reveal glass-panel p-6 rounded-xl border border-white/10" style="transition-delay: 200ms;">
+                    <h3 class="text-white font-serif text-xl mb-3">Can I rent just the suite, or just the van?</h3>
+                    <p class="text-gray-400 leading-relaxed">Yes! You can rent either separately or combine them for the ultimate experience. Guests use the suite as a staging area before hitting the road.</p>
+                </div>
+                
+                <div class="reveal glass-panel p-6 rounded-xl border border-white/10" style="transition-delay: 300ms;">
+                    <h3 class="text-white font-serif text-xl mb-3">Is the van suitable for winter camping?</h3>
+                    <p class="text-gray-400 leading-relaxed">Absolutely! The van is 4-season ready with a space heater, MaxxFan, Velit AC, wool insulation, and oversized all-terrain tires (chains included). Perfect for Tahoe winters and desert summers.</p>
+                </div>
+                
+                <div class="reveal glass-panel p-6 rounded-xl border border-white/10" style="transition-delay: 400ms;">
+                    <h3 class="text-white font-serif text-xl mb-3">How close are you to Lake Tahoe?</h3>
+                    <p class="text-gray-400 leading-relaxed">We're located in Reno, just 35 miles (45 minutes) from Lake Tahoe. Perfect for day trips to the lake or extended mountain adventures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky Mobile CTA Button -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-gradient-to-t from-black via-black/95 to-transparent p-4 pb-6">
+        <a href="https://www.outdoorsy.com/rv-rental/reno_nv/2012_mercedes-benz_sprinter_434747-listing" target="_blank" class="block w-full btn-lux text-white py-4 rounded-full font-bold text-sm tracking-widest uppercase text-center shadow-2xl">
+            Check Availability & Book
+        </a>
+    </div>
+
     <!-- Footer -->
-    <footer class="bg-black text-white py-20 px-6 border-t border-white/10">
+    <footer class="bg-black text-white py-20 px-6 border-t border-white/10 pb-24 md:pb-20">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
             
             <div class="flex flex-col items-center md:items-start text-center md:text-left">
@@ -578,6 +781,46 @@
 
         document.addEventListener('DOMContentLoaded', () => {
              document.querySelectorAll('.reveal, .animate-fade-in-up').forEach(el => observer.observe(el));
+             
+             // Track booking button clicks for conversion tracking
+             document.querySelectorAll('a[href*="outdoorsy.com"]').forEach(link => {
+                 link.addEventListener('click', function() {
+                     // Google Analytics conversion tracking
+                     if (typeof gtag !== 'undefined') {
+                         gtag('event', 'conversion', {
+                             'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+                             'event_category': 'Booking',
+                             'event_label': 'Outdoorsy Booking Click'
+                         });
+                         gtag('event', 'click', {
+                             'event_category': 'Booking',
+                             'event_label': 'Outdoorsy Link Click'
+                         });
+                     }
+                     
+                     // Facebook Pixel conversion tracking
+                     if (typeof fbq !== 'undefined') {
+                         fbq('track', 'Lead');
+                         fbq('track', 'InitiateCheckout');
+                     }
+                 });
+             });
+             
+             // Track form submissions
+             const contactForm = document.querySelector('form[onsubmit="handleFormSubmit(event)"]');
+             if (contactForm) {
+                 contactForm.addEventListener('submit', function() {
+                     if (typeof gtag !== 'undefined') {
+                         gtag('event', 'conversion', {
+                             'event_category': 'Contact',
+                             'event_label': 'Suite Inquiry Form'
+                         });
+                     }
+                     if (typeof fbq !== 'undefined') {
+                         fbq('track', 'Contact');
+                     }
+                 });
+             }
         });
 
         // Mobile Menu Logic
