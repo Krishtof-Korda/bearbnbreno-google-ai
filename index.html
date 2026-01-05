@@ -63,98 +63,78 @@
     /></noscript>
     <!-- End Meta Pixel Code -->
 
-    <!-- Structured Data (JSON-LD) -->
+    
+    <!-- Structured Data (JSON-LD) for Local Business & Product Rental -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "BearBnB Reno",
-      "image": "https://bearbnbreno.com/assets/hero.png",
-      "description": "Luxury Mercedes-Benz Sprinter camper van rentals and private suites in Reno, NV. Serving Lake Tahoe, and the Sierra Nevada.",
-      "email": "krishtof@bearbnbreno.com",
-      "address": {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "BearBnB Reno",
+        "image": [
+        "https://bearbnbreno.com/assets/hero.png",
+        "https://bearbnbreno.com/assets/interior.webp"
+        ],
+        "description": "Luxury Mercedes-Benz Sprinter camper van rentals and private suites in Reno, NV. Serving Lake Tahoe, Burning Man, and the Sierra Nevada.",
+        "email": "krishtof@bearbnbreno.com",
+        "address": {
         "@type": "PostalAddress",
         "addressLocality": "Reno",
         "addressRegion": "NV",
         "addressCountry": "US"
-      },
-      "url": "https://bearbnbreno.com",
-      "priceRange": "$$",
-      "telephone": "+1-775-745-4045"
+        },
+        "url": "https://bearbnbreno.com",
+        "priceRange": "$$",
+        "telephone": "+1-775-745-4045", 
+        "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Rental Services",
+        "itemListElement": [
+            {
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Product",
+                "name": "Luxury Mercedes-Benz Sprinter 170 Camper Van Rental",
+                "description": "2012 Mercedes-Benz Sprinter 170. Fully outfitted 4-season camper van with queen bed, kitchen, solar power, and all amenities included.",
+                "image": "https://bearbnbreno.com/assets/hero.png",
+                "brand": {
+                "@type": "Brand",
+                "name": "Mercedes-Benz"
+                },
+                "offers": {
+                "@type": "Offer",
+                "businessFunction": "http://purl.org/goodrelations/v1#LeaseOut",
+                "url": "https://www.outdoorsy.com/rv-rental/reno_nv/2012_mercedes-benz_sprinter_434747-listing",
+                "priceCurrency": "USD",
+                "price": "249.00",
+                "availability": "https://schema.org/InStock",
+                "itemCondition": "https://schema.org/UsedCondition",
+                "shippingDetails": {
+                    "@type": "OfferShippingDetails",
+                    "shippingRate": {
+                        "@type": "MonetaryAmount",
+                        "value": "0",
+                        "currency": "USD"
+                    }
+                },
+                    "hasMerchantReturnPolicy": {
+                    "@type": "MerchantReturnPolicy",
+                    "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                    "merchantReturnDays": 7,
+                    "returnMethod": "https://schema.org/ReturnByMail",
+                    "returnFees": "https://schema.org/FreeReturn"
+                    }
+                },
+                "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5.0",
+                "reviewCount": "1"
+                }
+            }
+            }
+        ]
+        }
     }
     </script>
-    
-    <!-- Structured Data (JSON-LD) for Local Business & Product Rental -->
-      <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "BearBnB Reno",
-          "image": [
-            "https://bearbnbreno.com/assets/hero.png",
-            "https://bearbnbreno.com/assets/interior.webp"
-          ],
-          "description": "Luxury Mercedes-Benz Sprinter camper van rentals and private suites in Reno, NV. Serving Lake Tahoe, Burning Man, and the Sierra Nevada.",
-          "email": "krishtof@bearbnbreno.com",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Reno",
-            "addressRegion": "NV",
-            "addressCountry": "US"
-          },
-          "url": "https://bearbnbreno.com",
-          "priceRange": "$$",
-          "telephone": "+1-775-745-4045", 
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Rental Services",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Product",
-                  "name": "Luxury Mercedes-Benz Sprinter 170 Camper Van Rental",
-                  "description": "2012 Mercedes-Benz Sprinter 170. Fully outfitted 4-season camper van with queen bed, kitchen, solar power, and all amenities included.",
-                  "image": "https://bearbnbreno.com/assets/hero.png",
-                  "brand": {
-                    "@type": "Brand",
-                    "name": "Mercedes-Benz"
-                  },
-                  "offers": {
-                    "@type": "Offer",
-                    "businessFunction": "http://purl.org/goodrelations/v1#LeaseOut",
-                    "url": "https://www.outdoorsy.com/rv-rental/reno_nv/2012_mercedes-benz_sprinter_434747-listing",
-                    "priceCurrency": "USD",
-                    "price": "249.00",
-                    "availability": "https://schema.org/InStock",
-                    "itemCondition": "https://schema.org/UsedCondition",
-                    "shippingDetails": {
-                        "@type": "OfferShippingDetails",
-                        "shippingRate": {
-                            "@type": "MonetaryAmount",
-                            "value": "0",
-                            "currency": "USD"
-                        }
-                    },
-                     "hasMerchantReturnPolicy": {
-                        "@type": "MerchantReturnPolicy",
-                        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-                        "merchantReturnDays": 7,
-                        "returnMethod": "https://schema.org/ReturnByMail",
-                        "returnFees": "https://schema.org/FreeReturn"
-                     }
-                  },
-                  "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "5.0",
-                    "reviewCount": "1"
-                  }
-                }
-              }
-            ]
-          }
-        }
-        </script>
     
     <!-- Accommodation Schema for Bear Den Suite -->
     <script type="application/ld+json">
@@ -188,6 +168,43 @@
         }
       ]
     }
+    </script>
+
+    <!-- FAQ Schema Markup -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [{
+            "@type": "Question",
+            "name": "Do I need a special license to drive the Sprinter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No special license required! A standard driver's license is sufficient. The van is easy to drive and handles like a large SUV. Just watch out for low hanging branches :-P!"
+            }
+          },{
+            "@type": "Question",
+            "name": "What's included with the van rental?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Everything you need for adventure: queen memory foam bed, linens, cookware, induction cooktop, fridge, solar power, heater, toilet, and camping chairs/table. Just bring your clothes and food!"
+            }
+          },{
+            "@type": "Question",
+            "name": "Can I rent just the suite, or just the van?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! You can rent either separately or combine them for the ultimate experience. Guests use the suite as a staging area before hitting the road."
+            }
+          },{
+            "@type": "Question",
+            "name": "Is the van suitable for winter camping?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! The van is 4-season ready with a space heater, MaxxFan, Velit AC, wool insulation, and oversized all-terrain tires (chains included). Perfect for Tahoe winters and desert summers."
+            }
+          }]
+        }
     </script>
     
     <!-- Fonts: Playfair Display (Luxury Headings) & Inter (Clean Body) -->
@@ -641,43 +658,7 @@
             </button>
         </div>
     </section>
-
-    <!-- FAQ Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "Do I need a special license to drive the Sprinter?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No special license required! A standard driver's license is sufficient. The van is easy to drive and handles like a large SUV. Just watch out for low hanging branches :-P!"
-        }
-      },{
-        "@type": "Question",
-        "name": "What's included with the van rental?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Everything you need for adventure: queen memory foam bed, linens, cookware, induction cooktop, fridge, solar power, heater, toilet, and camping chairs/table. Just bring your clothes and food!"
-        }
-      },{
-        "@type": "Question",
-        "name": "Can I rent just the suite, or just the van?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! You can rent either separately or combine them for the ultimate experience. Guests use the suite as a staging area before hitting the road."
-        }
-      },{
-        "@type": "Question",
-        "name": "Is the van suitable for winter camping?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Absolutely! The van is 4-season ready with a space heater, MaxxFan, Velit AC, wool insulation, and oversized all-terrain tires (chains included). Perfect for Tahoe winters and desert summers."
-        }
-      }]
-    }
-    </script>
+ 
 
     <!-- FAQ Section -->
     <section class="py-32 px-6 bg-brand-darker relative">
