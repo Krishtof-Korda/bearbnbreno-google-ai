@@ -84,32 +84,77 @@
     }
     </script>
     
-    <!-- Product Schema for Sprinter Van Rental -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Luxury Mercedes-Benz Sprinter 170 Camper Van Rental",
-      "image": ["https://bearbnbreno.com/assets/hero.png", "https://bearbnbreno.com/assets/interior.webp"],
-      "description": "2012 Mercedes-Benz Sprinter 170. Fully outfitted 4-season camper van with queen bed, kitchen, solar power, and all amenities included.",
-      "brand": {
-        "@type": "Brand",
-        "name": "Mercedes-Benz"
-      },
-      "offers": {
-        "@type": "Offer",
-        "url": "https://www.outdoorsy.com/rv-rental/reno_nv/2012_mercedes-benz_sprinter_434747-listing",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock",
-        "itemCondition": "https://schema.org/UsedCondition"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "1"
-      }
-    }
-    </script>
+    <!-- Structured Data (JSON-LD) for Local Business & Product Rental -->
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "BearBnB Reno",
+          "image": [
+            "https://bearbnbreno.com/assets/hero.png",
+            "https://bearbnbreno.com/assets/interior.webp"
+          ],
+          "description": "Luxury Mercedes-Benz Sprinter camper van rentals and private suites in Reno, NV. Serving Lake Tahoe, Burning Man, and the Sierra Nevada.",
+          "email": "krishtof@bearbnbreno.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Reno",
+            "addressRegion": "NV",
+            "addressCountry": "US"
+          },
+          "url": "https://bearbnbreno.com",
+          "priceRange": "$$",
+          "telephone": "+1-775-745-4045", 
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Rental Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Luxury Mercedes-Benz Sprinter 170 Camper Van Rental",
+                  "description": "2012 Mercedes-Benz Sprinter 170. Fully outfitted 4-season camper van with queen bed, kitchen, solar power, and all amenities included.",
+                  "image": "https://bearbnbreno.com/assets/hero.png",
+                  "brand": {
+                    "@type": "Brand",
+                    "name": "Mercedes-Benz"
+                  },
+                  "offers": {
+                    "@type": "Offer",
+                    "businessFunction": "http://purl.org/goodrelations/v1#LeaseOut",
+                    "url": "https://www.outdoorsy.com/rv-rental/reno_nv/2012_mercedes-benz_sprinter_434747-listing",
+                    "priceCurrency": "USD",
+                    "price": "249.00",
+                    "availability": "https://schema.org/InStock",
+                    "itemCondition": "https://schema.org/UsedCondition",
+                    "shippingDetails": {
+                        "@type": "OfferShippingDetails",
+                        "shippingRate": {
+                            "@type": "MonetaryAmount",
+                            "value": "0",
+                            "currency": "USD"
+                        }
+                    },
+                     "hasMerchantReturnPolicy": {
+                        "@type": "MerchantReturnPolicy",
+                        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                        "merchantReturnDays": 7,
+                        "returnMethod": "https://schema.org/ReturnByMail",
+                        "returnFees": "https://schema.org/FreeReturn"
+                     }
+                  },
+                  "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "5.0",
+                    "reviewCount": "1"
+                  }
+                }
+              }
+            ]
+          }
+        }
+        </script>
     
     <!-- Accommodation Schema for Bear Den Suite -->
     <script type="application/ld+json">
