@@ -1,4 +1,14 @@
+# -----------------------------------------------------------------------------
+# ROBOTS.TXT - BearBnB Reno
+# Purpose: Instructions for search engine crawlers (Google, Bing, etc.)
+# -----------------------------------------------------------------------------
+
+# 1. User-agent: * means "All Search Engines"
+# 2. Allow: / means "You can crawl every page and folder"
+#    (This is critical for SEO so they can index your images in /assets)
 User-agent: *
 Allow: /
 
+# 3. Location of the Sitemap
+#    This explicitly tells bots where to find your map
 Sitemap: https://bearbnbreno.com/sitemap.xml
