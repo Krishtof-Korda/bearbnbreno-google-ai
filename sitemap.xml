@@ -1,10 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://bearbnbreno.com/</loc>
-    <!-- Update this date whenever you make big changes -->
     <lastmod>2025-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    
+    <!-- Image 1: The Hero Shot -->
+    <image:image>
+      <image:loc>https://bearbnbreno.com/assets/hero.png</image:loc>
+      <image:title>Luxury Mercedes Sprinter Van Rental Reno Tahoe</image:title>
+      <image:caption>BearBnB Reno luxury camper van parked fireside in the High Sierra.</image:caption>
+    </image:image>
+
+    <!-- Image 2: The Interior -->
+    <image:image>
+      <image:loc>https://bearbnbreno.com/assets/interior.webp</image:loc>
+      <image:title>Sprinter Van Interior Layout and Bed</image:title>
+      <image:caption>Fully stocked luxury interior with queen memory foam bed and induction kitchen.</image:caption>
+    </image:image>
+
+    <!-- Image 3: The Starry Night Shot (NEW) -->
+    <image:image>
+        <image:loc>https://bearbnbreno.com/assets/stary-van.png</image:loc>
+        <image:title>Camping under stars in Reno Tahoe</image:title>
+        <image:caption>Luxury Sprinter Van camping under the starry night sky in the Sierra Nevada mountains.</image:caption>
+    </image:image>
+
+    <!-- Image 4: The Logo -->
+    <image:image>
+      <image:loc>https://bearbnbreno.com/assets/logo.svg</image:loc>
+      <image:title>BearBnB Reno Logo</image:title>
+    </image:image>
+
   </url>
 </urlset>
