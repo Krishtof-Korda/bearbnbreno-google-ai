@@ -4,7 +4,7 @@
   <style>
     /* Default Color (For Light Mode Browsers) - Uses your Brand Dark Blue */
     path, circle, rect, polygon {
-      fill: #FFFFFF;
+      fill: #3e3f3a;
     }
 
     /* Dark Mode Override (For Dark Mode Browsers) - Uses your Brand Gold */
